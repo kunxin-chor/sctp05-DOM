@@ -9,5 +9,11 @@ button.addEventListener("click", function(){
     // 
     let email = document.querySelector("#email").value;
     console.log("Email =", email);
+
+    // find the radio button with class 'experience' and is checked
+    let selectedRb = document.querySelector(".experience:checked");
+    let experience = selectedRb.value;
+  
+    console.log("Experience =", experience);
 ;
 })
