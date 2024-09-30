@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="changeMode">Change Mode</button>
+    <h1>Sakura Japanese Resturant</h1>
+    <h2 id="subtitle">Menu</h2>
+    <ul>
+        <li>Overpriced Raw Fish</li>
+        <li class="recommended">Deep Fried Chicken</li>
+        <li>Rice with a little bit of sugar</li>
+        <li class="recommended">Eel that got away</li>
+    </ul>
+    <h1 id="our-reviews">Our Reviews</h1>
+    <blockquote>
+        Best food ever!
+    </blockquote>
+    <blockquote>
+        Cheap and good!
+        </blockqoute>
+</body>
+<script>
+
+    let button = document.querySelector("#changeMode");
+    button.addEventListener("click", function () {
+        // SELECT BY TAG
+        // we can select the first occuring element with
+        // document.querySelector
+        // will return the DOM object (sometimes known as the DOM node)
+        // that represents the element
+        let header = document.querySelector("h1");
+
+
+        // SELECT BY ID
+        let reviewHeader = document.querySelector("#our-reviews");
+        reviewHeader.style.backgroundColor = "green";
+
+        // SELECT BY CLASS
+        // document.querySelector will only select the first match
+        // If > 1, we use document.querySelectorAll()
+        // it will return an array of all the matches, or an empty array if no matches
+        let recommended = document.querySelectorAll(".recommended");
+        for (let r of recommended) {
+            r.style.backgroundColor = "yellow";
+        }
+    })
+
+
+
+</script>
+
+</html>
