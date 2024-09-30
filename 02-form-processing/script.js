@@ -15,5 +15,14 @@ button.addEventListener("click", function(){
     let experience = selectedRb.value;
   
     console.log("Experience =", experience);
+
+    let allSelectedCheckboxes = document.querySelectorAll(".hearAbout:checked");
+    
+    // create an accumulator
+    let hearAbout = [];
+    for (let c of allSelectedCheckboxes) {
+        hearAbout.push(c.value);
+    }
+    console.log("Hear about =", hearAbout);
 ;
 })
