@@ -24,5 +24,9 @@ button.addEventListener("click", function(){
         hearAbout.push(c.value);
     }
     console.log("Hear about =", hearAbout);
+
+    // get the country
+    let country = document.querySelector("#country").value;
+    console.log("Country = ", country);
 ;
 })
