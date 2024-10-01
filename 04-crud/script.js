@@ -25,6 +25,7 @@ window.addEventListener("DOMContentLoaded", function(){
     // render all the tasks in the database
     renderTasks();
 
+    // Creating Task Section
     // select the button
     document.querySelector("#createTask").addEventListener("click", function(){
         let taskName = document.querySelector("#taskName").value;
