@@ -81,14 +81,22 @@ function renderTasks() {
         // METHOD TWO: Using createElement to create the <li> but using innerHTML to set the <li>
         let liElement = document.createElement("li");
         liElement.innerHTML = `
-            ${t.name} (${t.urgency}) <input type="checkbox" class="checkbox" /> <button class="edit">Edit</button> 
+            ${t.name} (${t.urgency}) 
+            <input type="checkbox" class="checkbox"/>
+            <button class="edit">Edit</button> 
+            <button class="delete">Delete</button>
         `
 
         // we can call querySelector on any DOM object. If we do so, then the querySelector
         // will only search children within the object
         let checkbox = liElement.querySelector(".checkbox");
         checkbox.checked = t.done;
+        checkbox.addEventListener("click", function(){
+            updateTaskDone(tasks, t.id);
+            renderTasks();
+        })
 
+        // for edit
         let editButton = liElement.querySelector(".edit");
         // start the process of editing a task
         editButton.addEventListener("click", function(){
@@ -104,6 +112,17 @@ function renderTasks() {
             updateTask(tasks, t.id, newTaskName, newUrgency, isDone);
             renderTasks(); // redraw all the tasks, along with any changes
 
+        });
+
+        // for delete 
+        // search within the liElement's children to find the element with the class ".delete"
+        let deleteButton = liElement.querySelector(".delete");
+        deleteButton.addEventListener("click", function(){
+            let reallyDelete = confirm("Are you sure you want to delete?");
+            if (reallyDelete) {
+                deleteTask(tasks, t.id);
+                renderTasks();
+            }
         })
 
         taskList.appendChild(liElement);

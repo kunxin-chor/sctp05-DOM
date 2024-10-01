@@ -41,3 +41,30 @@ function updateTask(taskList, taskId, newTaskName, newUrgency, newIsDone) {
         }
     }
 }
+
+function deleteTask(tasks, taskIdToDelete) {
+
+    // 1. find the index of the task that I want to delete
+    let indexToDelete = tasks.findIndex(function(t){
+        return t.id == taskIdToDelete;
+    })
+
+    // 2. delete the task from the array
+    tasks.splice(indexToDelete, 1);
+}
+
+function updateTaskDone(tasks, taskId) {
+    let index = tasks.findIndex(function(t){
+        return t.id == taskId
+    });
+
+    // if the the task is already done, check it as not done
+    // if (tasks[index].done) {
+    //     tasks[index].done = false;
+    // } else {
+    //     tasks[index].done = true;
+    // }
+
+    // or we can just use the ! operator to invert
+    tasks[index].done = !tasks[index].done;
+}
