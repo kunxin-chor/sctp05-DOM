@@ -25,6 +25,18 @@ window.addEventListener("DOMContentLoaded", function(){
     // render all the tasks in the database
     renderTasks();
 
+    // select the button
+    document.querySelector("#createTask").addEventListener("click", function(){
+        let taskName = document.querySelector("#taskName").value;
+        let urgency = document.querySelector(".urgency:checked").value;
+
+        addTask(tasks, taskName, urgency);
+
+        // re-render all the tasks
+        renderTasks();
+
+    });
+
 })
 
 // renderTasks is to update the ul#tasks with 
@@ -32,6 +44,9 @@ window.addEventListener("DOMContentLoaded", function(){
 function renderTasks() {
 
     let taskList = document.querySelector("#tasks");
+
+    // empty the task list of all the <li> inside it
+    taskList.innerHTML = ""; // remove all the children inside
 
     for (let t of tasks) {
         let liElement = document.createElement("li");

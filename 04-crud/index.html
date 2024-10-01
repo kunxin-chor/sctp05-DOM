@@ -7,9 +7,38 @@
 </head>
 <body>
     <h1>Task List</h1>
+
+    <div>
+        <h2>Create a New Task</h2>
+        <div>
+            <label>Task Name:</label>
+            <input type="text" id="taskName" />
+        </div>
+        <div>
+            <label>Urgency:</label>
+            <input type="radio" name="urgency" class="urgency" value="1"/>
+            <label>1</label>
+
+            <input type="radio" name="urgency" class="urgency" value="2"/>
+            <label>2</label>
+
+            <input type="radio" name="urgency" class="urgency" value="3"/>
+            <label>3</label>
+
+            <input type="radio" name="urgency" class="urgency" value="4"/>
+            <label>4</label>
+
+            <input type="radio" name="urgency" class="urgency" value="5"/>
+            <label>5</label>
+        </div>
+        <input type="button" value="Create Task" id="createTask"/>
+    </div>
+
     <ul id="tasks">
 
     </ul>
+    <!-- data.js should come first BECAUSE script.js uses a function from it -->
+    <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
